@@ -1,19 +1,17 @@
 # https://www.youtube.com/watch?v=MoqgmWV1fm8
 
 import streamlit as st
-
-from PyPDF2 import PdfReader
 import os
 from langchain.embeddings import GooglePalmEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
-# from langchain.chains import ConversationalRetrievalChain
+
 from langchain.llms import GooglePalm
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import UnstructuredURLLoader
-import pickle
+
 import time
-from pathlib import Path
+
 
 def init():
     # Load the OpenAI API key from the environment variable
