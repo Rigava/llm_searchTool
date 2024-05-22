@@ -6,3 +6,4 @@ faiss-cpu==1.7.4
 selenium
 altair<5
 google-generativeai
+python-magic-bin==0.4.14
