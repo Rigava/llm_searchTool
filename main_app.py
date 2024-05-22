@@ -12,23 +12,6 @@ from langchain.document_loaders import UnstructuredURLLoader
 
 import time
 
-
-def init():
-    # Load the OpenAI API key from the environment variable
-    load_dotenv()
-    
-    # test that the API key exists
-    if os.getenv("GOOGLE_API_KEY") is None or os.getenv("GOOGLE_API_KEY") == "":
-        print("API_TOKEN is not set")
-        exit(1)
-    else:
-        print("API_TOKEN is set")
-    st.set_page_config(
-        page_title="Chat with your PDFs",
-        page_icon=":books"
-    )
-init()
-
 st.title("Akj News Research Tool 📈")
 st.sidebar.title("News Article URLs")
 
