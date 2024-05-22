@@ -23,7 +23,7 @@ for i in range(3):
 process_url_clicked = st.sidebar.button("Process URLs")
 
 main_placeholder = st.empty()
-GOOGLE_API_KEY = "AIzaSyAKEaaM7fWIErN3VbikjP_T5m0UfhBy5iE"
+GOOGLE_API_KEY = st.secrets.key
 llm = GooglePalm(google_api_key=GOOGLE_API_KEY)
 
 query = main_placeholder.text_input("Question: ") 
