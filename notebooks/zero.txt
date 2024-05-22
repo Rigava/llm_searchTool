@@ -1,0 +1,58 @@
+FuelEU’s pooling mechanism can drive uptake of green shipping. It does this by creating a way for vessels that go beyond the annual GHG intensity targets (reducing more emissions than is required by the rules) to share their overcompliance with other vessels. For the mechanism to drive investment, companies need reliable estimates of what overcompliance is worth. Here, we lay out how pools can work, how companies can think about the value of pooling, and a calculator you can use right away to help quantify potential benefits.
+
+A business case?
+
+The goal of the pooling mechanism is to provide “incentives for investment in more advanced technologies” (FuelEU Recital (57)).
+
+FuelEU pooling allows vessels that overachieve on the intensity targets to generate value by monetizing the excess compliance, known as ‘surplus’, with other vessels. If companies can find buyers for the surplus, this can become another source of revenue that potentially closes the cost gap between alternative and fossil fuels. FuelEU pooling, thus, may create a business case for sailing green (read more about building a business case in our recent report ‘Transatlantic Testing Ground’).
+
+But the industry needs clarity on how pooling works and the possible financial returns for overachieving on compliance in order to invest in new vessels and alternative fuels.
+
+Pooling arrangements begin to take shape
+
+The EU opted not to create a government-run marketplace for companies to buy and sell compliance credits, like the LCFS Credit Clearance Market in California. Instead, the EU established pooling as an open mechanism that gives market players the freedom to establish their own pooling arrangements and prices. This open approach is likely to lead to pooling arrangements that involve a range of players.
+
+
+Who are the regulated actors involved?
+
+Regulated entity (Document of Compliance holder) is the company responsible for fulfilling the requirements of the regulation (see our first newsletter).
+Verifier is an accredited body (in many cases a classification society) that is responsible for verifying the energy consumption data that the vessel has been monitoring and reporting to comply with FuelEU. They also validate the compliance surplus of the pool and distribute the balance across participating vessels.
+
+Who are the potential market actors?
+
+Pool lead (seller) is the vessel which overachieves on the compliance target and decides to share the surplus with other vessels.
+Pool participant (buyer) is a vessel looking to achieve compliance through the surplus of the pool lead.
+Pool broker is a role open to any entity, including third parties, capable of connecting sellers with buyers and potentially overseeing or managing the relationships.
+Pool service providers include financial, legal, and insurance services which are needed for the exchange between entities involved with the vessels.
+
+Anticipating a price for pooling is key to attracting the above participants to develop a workable system.
+
+From value to price
+
+To estimate the price of pooling, we must first establish the market cost of FuelEU compliance. The flowchart illustrates the decision-making process for a standard fossil-fueled vessel that is required to reduce its GHG intensity, and for a vessel that has overachieved and decides to sell its surplus in a pool.
+Vessels sailing on conventional fuels will likely consider blending in a biodiesel such as FAME to comply with the target. This is because FAME and similar drop-in fuels are commercially available and can be used in existing vessels. The market already reflects growing demand for the fuels — in 2023, biofuel blends made up roughly 8% of bunker sales in Rotterdam.
+
+Companies can also choose to comply with FuelEU by paying the penalty. There are further compliance options such as cold ironing (onshore power) and wind-assisted propulsion, but we have excluded these because they require additional capital investment.
+
+The “cost per tonne of abatement” measures the cost to reduce one tonne of GHG emissions. This enables an “apples to apples” comparison across different abatement options and can help companies evaluate the option with the lowest cost of compliance.
+
+Blending biodiesel to meet intensity targets will generally be cheaper than paying the penalty on a per tonne of abatement basis. For example, a comparison of the options in 2025:
+
+
+Penalty cost: If operating on industry standard LSFO (with an intensity of 91.60 gCO2eq/MJ), then penalties will exceed 700 USD per tonne of non-compliant CO2eq.
+Biodiesel blend cost: If starting with a 600 USD per tonne LSFO, and blending in biodiesel at a projected price of 1200 USD per tonne (roughly in line with February 2024 Rotterdam B100 delivered prices), then we estimate the cost to comply by blending the required percentage of biodiesel will be less than 200 USD per tonne of abatement. Moreover, blending biodiesel reduces the company’s ETS expenses, making this option the clear winner on cost compared to the penalty.
+
+
+What will the price be if the vessel decides to join a pool instead?
+
+Initially, this price will likely be tied to the cost of compliance in the market. This is because in the early years of FuelEU’s implementation, few vessels will be able to use alternative fuel pathways, such as e-methanol or e-ammonia, to overachieve on FuelEU targets. This, in turn, means that the demand for surplus is likely to be more than the supply. Thus, vessels which overachieve on FuelEU targets could be well-positioned to sell surplus emissions up to the market cost of compliance.
+
+If the pooling price is above the cost to blend biodiesel, then companies will likely forgo pooling in favor of blending biodiesel. Of course, if biodiesel is scarce in some geographical locations, then this could drive up demand for limited pooling surplus. This, in turn, could increase the price and bring it closer to the penalty cost. The penalty is the maximum price a company will be willing to pay for pooling.
+
+By assuming that conventional vessels pay a price for pooling which is roughly equal to the cost of blending biodiesel, we can estimate the value of surplus compliance and the resulting benefits for alternative fuels. These estimates rely on future costs of biodiesel and ETS prices, both of which are inherently uncertain today. Nevertheless, we find pooling benefits are compelling enough to encourage organizations to consider them as part of their decarbonization strategies.
+
+Pooling value calculator
+
+To help companies quantify FuelEU pooling benefits, we are providing an Excel tool to make the calculation using the logic outlined above.
+
+This allows organizations to estimate the cost of compliance for sailing on fossil fuels as well as the potential value that can be achieved by exceeding the legislation’s GHG target and pooling the resulting surplus. The tool includes all relevant assumptions, benchmark values, and their public sources, but also allows users to provide values that more closely align with their organization.
