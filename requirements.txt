@@ -1,8 +1,8 @@
 langchain
 langchain-community
 unstructured==0.9.2
-
 tiktoken==0.4.0
 faiss-cpu==1.7.4
 selenium
 altair<5
+google-generativeai
