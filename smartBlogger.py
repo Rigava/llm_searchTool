@@ -2,7 +2,7 @@
 
 import streamlit as st
 
-from PyPDF2 import PdfReader
+
 import os
 from langchain.embeddings import GooglePalmEmbeddings
 from langchain.vectorstores import FAISS
