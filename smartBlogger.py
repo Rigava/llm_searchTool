@@ -1,7 +1,7 @@
 # https://www.youtube.com/watch?v=MoqgmWV1fm8
 
 import streamlit as st
-from dotenv import load_dotenv
+
 from PyPDF2 import PdfReader
 import os
 from langchain.embeddings import GooglePalmEmbeddings
