@@ -10,7 +10,7 @@ from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 # from langchain.chains import ConversationalRetrievalChain
 from langchain.chains.question_answering import load_qa_chain
-from langchain.llms import GooglePalm
+from langchain_community.llms import GooglePalm
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import UnstructuredURLLoader
 import google.generativeai as palm
