@@ -4,7 +4,8 @@ import streamlit as st
 
 
 import os
-from langchain.embeddings import GooglePalmEmbeddings
+# from langchain.embeddings import GooglePalmEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 # from langchain.chains import ConversationalRetrievalChain
@@ -63,7 +64,8 @@ if process_url_clicked:
     st.text("Text Splitter...Started...✅✅✅")
     docs = text_splitter.split_documents(data)
     # create embeddings and save it to FAISS index
-    embeddings = GooglePalmEmbeddings(google_api_key=GOOGLE_API_KEY)
+    embeddings = HuggingFaceEmbeddings()
+    # GooglePalmEmbeddings(google_api_key=GOOGLE_API_KEY)
     vectorstore_palm = FAISS.from_documents(docs, embeddings)
     st.text("Embedding Vector Started Building...✅✅✅")
     time.sleep(2)
