@@ -6,7 +6,7 @@ import streamlit as st
 import os
 # from langchain.embeddings import GooglePalmEmbeddings
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 # from langchain.chains import ConversationalRetrievalChain
 from langchain.chains.question_answering import load_qa_chain
