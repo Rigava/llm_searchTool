@@ -9,3 +9,4 @@ google-generativeai
 python-magic==0.4.15
 google.generativeai
 sentence-transformers
+beautifulsoup4
