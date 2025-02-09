@@ -30,7 +30,7 @@ for i in range(3):
 process_url_clicked = st.sidebar.button("Submit URLs")
 
 GOOGLE_API_KEY = st.secrets.API_KEY
-llm = GooglePalm(google_api_key=GOOGLE_API_KEY)
+llm = GooglePalm(model="gemini-pro",google_api_key=GOOGLE_API_KEY)
 
 palm.configure(api_key = GOOGLE_API_KEY)
 models = [m for m in palm.list_models() 
