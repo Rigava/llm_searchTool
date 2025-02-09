@@ -22,9 +22,15 @@ st.sidebar.title("News Article URLs")
 links = st.sidebar.number_input("Insert a number of url links")
 if links:
     urls = []
-    for i in range(links):
-        url = st.sidebar.text_input(f"URL {i+1}")
-        urls.append(url)
+    try:
+        for i in range(links):
+            url = st.sidebar.text_input(f"URL {i+1}")
+            urls.append(url)
+    else:
+        for i in range(1):
+            url = st.sidebar.text_input(f"URL {i+1}")
+            urls.append(url)
+        
     
     process_url_clicked = st.sidebar.button("Submit URLs")
     
