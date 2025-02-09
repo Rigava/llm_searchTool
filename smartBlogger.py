@@ -26,7 +26,7 @@ if links:
         for i in range(links):
             url = st.sidebar.text_input(f"URL {i+1}")
             urls.append(url)
-    else:
+    except:
         for i in range(1):
             url = st.sidebar.text_input(f"URL {i+1}")
             urls.append(url)
