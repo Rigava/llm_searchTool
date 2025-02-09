@@ -19,9 +19,9 @@ dashboard = st.sidebar.selectbox("select RAG tool",["link RAG","pdf RAG"])
 
 st.title("Akj Advance News Research Tool 📈")
 st.sidebar.title("News Article URLs")
-
+links = st.number_input("Insert a number of url links")
 urls = []
-for i in range(3):
+for i in range(links):
     url = st.sidebar.text_input(f"URL {i+1}")
     urls.append(url)
 
