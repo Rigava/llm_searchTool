@@ -12,7 +12,7 @@ from langchain.chains import RetrievalQA
 from langchain.chains.question_answering import load_qa_chain
 from langchain_community.llms import GooglePalm
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import UnstructuredURLLoader
+from langchain_community.document_loaders import UnstructuredURLLoader,WebBaseLoader
 import google.generativeai as palm
 import time
 from pathlib import Path
@@ -53,16 +53,21 @@ query = st.text_input("Question: ")
 if process_url_clicked:
    
     # load data
-    loader = UnstructuredURLLoader(urls=urls)
+    # loader = UnstructuredURLLoader(urls=urls)
+    loader = WebBaseLoader(url)
+    
     st.text("Data Loading...Started...✅✅✅")
-    data = loader.load()
+    # data = loader.load()
+    data = loader.load().pop().page_content
     # split data
-    text_splitter = RecursiveCharacterTextSplitter(
-        separators=['\n\n', '\n', '.', ','],
-        chunk_size=1000
-    )
+    # text_splitter = RecursiveCharacterTextSplitter(
+    #     separators=['\n\n', '\n', '.', ','],
+    #     chunk_size=1000
+    # )
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size = 10000, chunk_overlap = 0, length_function = len, add_start_index = True,)
     st.text("Text Splitter...Started...✅✅✅")
-    docs = text_splitter.split_documents(data)
+    # docs = text_splitter.split_documents(data)
+    docs= text_splitter.create_documents(data)
     # create embeddings and save it to FAISS index
     embeddings = HuggingFaceEmbeddings()
     # GooglePalmEmbeddings(google_api_key=GOOGLE_API_KEY)
