@@ -19,34 +19,35 @@ dashboard = st.sidebar.selectbox("select RAG tool",["link RAG","pdf RAG"])
 
 st.title("Akj Advance News Research Tool 📈")
 st.sidebar.title("News Article URLs")
-links = st.number_input("Insert a number of url links")
-urls = []
-for i in range(links):
-    url = st.sidebar.text_input(f"URL {i+1}")
-    urls.append(url)
-
-process_url_clicked = st.sidebar.button("Submit URLs")
-
-GOOGLE_API_KEY = st.secrets.API_KEY
-llm = GooglePalm(model="gemini-pro",google_api_key=GOOGLE_API_KEY)
-
-palm.configure(api_key = GOOGLE_API_KEY)
-models = [m for m in palm.list_models() 
-          if 'generateText' 
-          in m.supported_generation_methods]
-
-model_bison = models[0]
-from google.api_core import retry
-@retry.Retry()
-def generate_text(prompt,
-                  model=model_bison,
-                  temperature=0.0):
-    return palm.generate_text(prompt=prompt,
-                              model=model,
-                              temperature=temperature)
-
-
-query = st.text_input("Question: ") 
+links = st.sidebar.number_input("Insert a number of url links")
+if links:
+    urls = []
+    for i in range(links):
+        url = st.sidebar.text_input(f"URL {i+1}")
+        urls.append(url)
+    
+    process_url_clicked = st.sidebar.button("Submit URLs")
+    
+    GOOGLE_API_KEY = st.secrets.API_KEY
+    llm = GooglePalm(model="gemini-pro",google_api_key=GOOGLE_API_KEY)
+    
+    palm.configure(api_key = GOOGLE_API_KEY)
+    models = [m for m in palm.list_models() 
+              if 'generateText' 
+              in m.supported_generation_methods]
+    
+    model_bison = models[0]
+    from google.api_core import retry
+    @retry.Retry()
+    def generate_text(prompt,
+                      model=model_bison,
+                      temperature=0.0):
+        return palm.generate_text(prompt=prompt,
+                                  model=model,
+                                  temperature=temperature)
+    
+    
+    query = st.text_input("Question: ") 
 
 if process_url_clicked:
    
