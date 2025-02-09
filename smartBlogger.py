@@ -58,7 +58,6 @@ if links:
     if process_url_clicked:
        
         # load data
-        html = requests.get(url).text
         loader = WebBaseLoader(url)
         st.text("Data Loading...Started...✅✅✅")
         data = loader.load().pop().page_content
