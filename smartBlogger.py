@@ -44,7 +44,7 @@ if links:
     
 
 
-
+    query = st.sidebar.text_input("Question: ") 
     if process_url_clicked:
        
         # load data
@@ -62,7 +62,7 @@ if links:
         vectorstore_palm = FAISS.from_documents(docs, embeddings)
         st.text("Embedding Vector Started Building...✅✅✅")
         time.sleep(2)
-        query = st.text_input("Question: ") 
+
         # Save the vectorstore object locally
         vectorstore_palm.save_local("vectorstore")   
         # Load the vectorstore object
