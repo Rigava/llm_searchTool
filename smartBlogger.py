@@ -34,8 +34,12 @@ if links:
     
     process_url_clicked = st.sidebar.button("Submit URLs")
     
-    GOOGLE_API_KEY = st.secrets.API_KEY
-    llm = GooglePalm(model="gemini-pro",google_api_key=GOOGLE_API_KEY)
+    # GOOGLE_API_KEY = st.secrets.API_KEY
+    groq_key = st.secrets.API_KEY
+    llm = ChatGroq(
+    temperature=0,
+    groq_api_key = key,
+    model_name = 'llama-3.3-70b-versatile')
     
     palm.configure(api_key = GOOGLE_API_KEY)
     models = [m for m in palm.list_models() 
