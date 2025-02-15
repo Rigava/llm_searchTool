@@ -33,6 +33,7 @@ if links:
             urls.append(url)
         
     
+    query = st.sidebar.text_input("Question: ") 
     process_url_clicked = st.sidebar.button("Submit URLs")
     
     # GOOGLE_API_KEY = st.secrets.API_KEY
@@ -43,8 +44,6 @@ if links:
     model_name = 'llama-3.3-70b-versatile')
     
 
-
-    query = st.sidebar.text_input("Question: ") 
     if process_url_clicked:
        
         # load data
