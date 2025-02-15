@@ -42,23 +42,8 @@ if links:
     groq_api_key = key,
     model_name = 'llama-3.3-70b-versatile')
     
-    palm.configure(api_key = GOOGLE_API_KEY)
-    models = [m for m in palm.list_models() 
-              if 'generateText' 
-              in m.supported_generation_methods]
-    
-    model_bison = models[0]
-    from google.api_core import retry
-    @retry.Retry()
-    def generate_text(prompt,
-                      model=model_bison,
-                      temperature=0.0):
-        return palm.generate_text(prompt=prompt,
-                                  model=model,
-                                  temperature=temperature)
-    
-    
-    query = st.text_input("Question: ") 
+
+
 
     if process_url_clicked:
        
@@ -77,12 +62,12 @@ if links:
         vectorstore_palm = FAISS.from_documents(docs, embeddings)
         st.text("Embedding Vector Started Building...✅✅✅")
         time.sleep(2)
-    
+        query = st.text_input("Question: ") 
         # Save the vectorstore object locally
         vectorstore_palm.save_local("vectorstore")   
         # Load the vectorstore object
         x = FAISS.load_local("vectorstore", embeddings,allow_dangerous_deserialization=True)
-    
+        
         if dashboard=="link RAG":
             chain = RetrievalQA.from_chain_type(llm =llm,
                 chain_type="stuff",
@@ -109,109 +94,109 @@ if links:
             st.write(res["output_text"])
             st.write(res["input_documents"]) 
     
-    task_list = ["Write","Short","Debug","Documentation","Translate","Summary"]
-    task = st.selectbox("What is your task",task_list)
-    input = st.text_area("ask your question")
-    if st.button("Submit"):
-        with st.spinner("processing"):
-            if task == "Write": 
-                prompt_template = """
-                            {priming}
+    # task_list = ["Write","Short","Debug","Documentation","Translate","Summary"]
+    # task = st.selectbox("What is your task",task_list)
+    # input = st.text_area("ask your question")
+    # if st.button("Submit"):
+    #     with st.spinner("processing"):
+    #         if task == "Write": 
+    #             prompt_template = """
+    #                         {priming}
     
-                            {question}
+    #                         {question}
     
-                            {decorator}
+    #                         {decorator}
     
-                            Your solution:
-                            """
-                priming_text = "You are an expert at critical reasoning and writing blog from holisitc point of view."
-                decorator = "Keep the tone friendly and compelling"
+    #                         Your solution:
+    #                         """
+    #             priming_text = "You are an expert at critical reasoning and writing blog from holisitc point of view."
+    #             decorator = "Keep the tone friendly and compelling"
     
-                completion = generate_text(prompt = prompt_template.format(priming=priming_text,
-                                question=input,
-                                decorator=decorator))
-                output = completion.result
-                st.markdown(output)
+    #             completion = generate_text(prompt = prompt_template.format(priming=priming_text,
+    #                             question=input,
+    #                             decorator=decorator))
+    #             output = completion.result
+    #             st.markdown(output)
     
-            if task == "Short":
-                st.subheader("Short description!")
-                prompt_template = """
-                Your task is to help a marketing team create a description for a blog website
-                at most 50 words.
-                {question}
-                Also provide 5 keywords for SEO marketting.
-                """
-                completion = generate_text(prompt = prompt_template.format(question=input))
-                output = completion.result
-                st.markdown(output)
+    #         if task == "Short":
+    #             st.subheader("Short description!")
+    #             prompt_template = """
+    #             Your task is to help a marketing team create a description for a blog website
+    #             at most 50 words.
+    #             {question}
+    #             Also provide 5 keywords for SEO marketting.
+    #             """
+    #             completion = generate_text(prompt = prompt_template.format(question=input))
+    #             output = completion.result
+    #             st.markdown(output)
     
-            if task == "Debug":
-                st.subheader("The Debugger mode is activated")
-                prompt_template = """
-                Check the sentence if it has any grammar mistake and if yes then provide the flaws
+    #         if task == "Debug":
+    #             st.subheader("The Debugger mode is activated")
+    #             prompt_template = """
+    #             Check the sentence if it has any grammar mistake and if yes then provide the flaws
     
-                {question}
+    #             {question}
     
-                Explain in detail what you found and why it 
-                """
-                completion = generate_text(prompt = prompt_template.format(question=input),
-                                            temperature=0.5)
-                output = completion.result
-                st.markdown(output)
+    #             Explain in detail what you found and why it 
+    #             """
+    #             completion = generate_text(prompt = prompt_template.format(question=input),
+    #                                         temperature=0.5)
+    #             output = completion.result
+    #             st.markdown(output)
     
-            if task == "Documentation":
-                st.subheader("Lets write up the documnet")
-                prompt_template = """
-                Please write technical documentation for this code and \n
-                make it easy for a non developer to understand:
+    #         if task == "Documentation":
+    #             st.subheader("Lets write up the documnet")
+    #             prompt_template = """
+    #             Please write technical documentation for this code and \n
+    #             make it easy for a non developer to understand:
     
-                {question}
+    #             {question}
     
-                Output the results in markdown
-                """
-                completion = generate_text(prompt = prompt_template.format(question=input))
-                output = completion.result
-                st.markdown(output)
+    #             Output the results in markdown
+    #             """
+    #             completion = generate_text(prompt = prompt_template.format(question=input))
+    #             output = completion.result
+    #             st.markdown(output)
     
-            if task == "Translate":
-                st.subheader("Explore multiple ways to write!")
-                prompt_template = """
-                {priming}
+    #         if task == "Translate":
+    #             st.subheader("Explore multiple ways to write!")
+    #             prompt_template = """
+    #             {priming}
     
-                {question}
+    #             {question}
     
-                {decorator}
+    #             {decorator}
     
-                Your solution:
-                """
-                priming_text = """
-                You are expert linguist and know french
-                """
-                decorator = "Keep the tone friendly and compelling"
-                completion = generate_text(prompt = prompt_template.format(priming=priming_text,
-                        question=input,
-                        decorator=decorator))
-                output = completion.result
-                st.markdown(output)
+    #             Your solution:
+    #             """
+    #             priming_text = """
+    #             You are expert linguist and know french
+    #             """
+    #             decorator = "Keep the tone friendly and compelling"
+    #             completion = generate_text(prompt = prompt_template.format(priming=priming_text,
+    #                     question=input,
+    #                     decorator=decorator))
+    #             output = completion.result
+    #             st.markdown(output)
     
-            if task == "Summary":
-                st.subheader("The most easy way to do it is shown below")
-                prompt_template = """
-                {priming}
+    #         if task == "Summary":
+    #             st.subheader("The most easy way to do it is shown below")
+    #             prompt_template = """
+    #             {priming}
     
-                {question}
+    #             {question}
     
-                {decorator}
+    #             {decorator}
     
-                Your solution:
-                """
-                priming_text = """
-                Your task is to generate a short summary in at most 50 words.
-                Focus on any aspect that are business oriented.
-                """
-                decorator = "Keep the tone friendly and compelling"
-                completion = generate_text(prompt = prompt_template.format(priming=priming_text,
-                        question=input,
-                        decorator=decorator))
-                output = completion.result
-                st.markdown(output)
+    #             Your solution:
+    #             """
+    #             priming_text = """
+    #             Your task is to generate a short summary in at most 50 words.
+    #             Focus on any aspect that are business oriented.
+    #             """
+    #             decorator = "Keep the tone friendly and compelling"
+    #             completion = generate_text(prompt = prompt_template.format(priming=priming_text,
+    #                     question=input,
+    #                     decorator=decorator))
+    #             output = completion.result
+    #             st.markdown(output)
