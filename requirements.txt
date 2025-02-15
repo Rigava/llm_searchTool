@@ -10,3 +10,4 @@ python-magic==0.4.15
 google.generativeai
 sentence-transformers
 beautifulsoup4
+langchain-groq
