@@ -39,7 +39,7 @@ if links:
     groq_key = st.secrets.API_KEY
     llm = ChatGroq(
     temperature=0,
-    groq_api_key = key,
+    groq_api_key = groq_key,
     model_name = 'llama-3.3-70b-versatile')
     
 
